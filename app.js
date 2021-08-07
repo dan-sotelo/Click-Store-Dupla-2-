@@ -7,9 +7,10 @@ const middUsuarios = require('./middlewares/midd.usuarios');
 const sequelize = require('./db/db.conexion');
 const Usuarios = require('./db/db.modelo.usuarios');
 const TipoUsuarios = require('./db/db.modelo.tipoUsuarios');
+const vistaApp = require('./app/vista/vista.app');
 const vistaUsuarios = require('./app/vista/vista.usuarios');
 const vistaProductosML = require('./app/vista/vista.productos.ml');
-const vistaNavegacion = require('./app/vista/vista.navegacion');
+
 
 // Midlewares globales
 app.use(express.json());
@@ -41,4 +42,4 @@ iniciarServidor();
 // Inicializar las rutas
 vistaUsuarios(app);
 vistaProductosML(app);
-vistaNavegacion(app);
+vistaApp(app);

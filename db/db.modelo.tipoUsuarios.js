@@ -4,14 +4,14 @@ const sequelize = require('./db.conexion');
 
 // Definir el modelo de la tabla para la DB
 
-const TipoUsuarios = sequelize.define('TipoUsuarios',{
-    Id_tipoUsuarios:{
+const TipoUsuarios = sequelize.define('tipo_usuarios',{
+    id_tipo_usuarios:{
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    Tipo_Usuarios:{
+    tipo_usuarios:{
         type: DataTypes.STRING(15),
         allowNull: false
     }

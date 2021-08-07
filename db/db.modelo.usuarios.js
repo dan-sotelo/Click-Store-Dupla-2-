@@ -4,51 +4,51 @@ const sequelize = require('./db.conexion');
 const TipoUsuarios = require('./db.modelo.tipoUsuarios');
 
 // Definir el modelo de la tabla para la DB
-const Usuarios = sequelize.define('Usuarios',{
-    Id_usuario:{
+const Usuarios = sequelize.define('usuarios',{
+    id_usuario:{
         primaryKey: true,
         autoIncrement: true,
         type: DataTypes.INTEGER,
         allowNull: false
     },
-    Nombres:{
+    nombres:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    Apellidos:{
+    apellidos:{
         type: DataTypes.STRING(50),
         allowNull: false
     },
-    Correo:{
+    correo:{
         type: DataTypes.STRING(40),
         allowNull: false
     },
-    Telefono:{
+    telefono:{
         type: DataTypes.STRING(15),
         allowNull: false
     },
-    Fecha_Nacimiento:{
+    fecha_nacimiento:{
         type: DataTypes.DATEONLY,
         allowNull: false
     },
-    Activo:{
+    activo:{
         type: DataTypes.BOOLEAN,
         allowNull: false
     },
-    Contrasena:{
+    contrasena:{
         type: DataTypes.STRING(15),
         allowNull: false
     },
-    Fk_Tipo_Usuarios:{
+    fk_tipo_usuarios:{
         type: DataTypes.INTEGER,
         allowNull: false
     }
 }, {
     timestamps: true,
-    createdAt: 'Fecha_Registro',
-    updatedAt: 'Fecha_Actualizacion'
+    createdAt: 'fecha_registro',
+    updatedAt: 'fecha_actualizacion'
 });
-Usuarios.belongsTo(TipoUsuarios,{foreignKey: 'Fk_Tipo_Usuarios'});
+Usuarios.belongsTo(TipoUsuarios,{foreignKey: 'fk_tipo_usuarios'});
 
 // Exportar el modelo
 module.exports = Usuarios

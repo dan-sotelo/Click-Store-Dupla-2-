@@ -1,5 +1,88 @@
-<%- include('template/cabecera', {tituloWeb: Registro}); %>
+<%- include('template/cabecera', {tituloWeb: 'Registro'}); %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <body>
-    <h1>Registro de usuarios</h1>
+    <header>
+        <%- include('template/navbar') %>
+    </header>
+    
+    <div class="container">
+        <main>
+            <div class="py-5 text-center">
+                <br><img class="d-block mx-auto mb-4" src="/img/logo_large.png" width="150" height="60">
+                <h2>EN CLICK STORE TE DAMOS LA BIENVENIDA</h2>
+                <p class="lead">A continuación te solicitaremos algunos datos para continuar con tu registro, solo te tomara unos minutos.</p>
+            </div>
+
+            <div class="col-md-12 col-lg-12">
+                <form class="needs-validation"  novalidate>
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <label for="firstName" class="form-label">Nombre(s)</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="Ej: José" value="" required>
+                            <div class="invalid-feedback">
+                                Por favor, introduzca su(s) nombre(s)
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <label for="lastName" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Ej: Cruz Sánchez" value="" required>
+                            <div class="invalid-feedback">
+                                Por favor, introduzca sus apellidos
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="date" class="form-label">Fecha de nacimiento</label>
+                            <input type="date" class="form-control" id="date" min="1960-01-01" max="2003-12-31" required>
+                            <div class="invalid-feedback">
+                              Por favor, introduzca su fecha de nacimiento
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="phone" class="form-label">Telefono</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{3} [0-9]{3} [0-9]{4}" required>
+                            <small>Ejemplo: 123 456 7890</small>
+                            <div class="invalid-feedback">
+                              Por favor, introduzca un número telefonico valido (Como en el ejemplo)
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="email" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" id="email" placeholder="usuario@email.com" required>
+                            <div class="invalid-feedback">
+                              Por favor, introduzca un correo electronico valido
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label for="txtpassword" class="form-label">Contraseña<span class="text-muted">(De 8 a 15 caracteres alfanumericos)</span></label>
+                            <div class="input-group">
+                              <input type="password" class="form-control" id="txtPassword" placeholder="**********" minlength="8" maxlength="15" required>
+                              <div class="input-group-append">
+                                <button id="show_password" class="btn btn-primary" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash icon"></span> </button>
+                              </div>
+                              <div class="invalid-feedback">
+                                Por favor, introduzca una contraseña
+                              </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-dark" type="submit" id ="sign-in">Registrarse</button>
+                    </div>
+                </form>
+            </div>
+        </main>
+    </div></br>
+    <%- include('template/footer') %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/formulario_extras.js"></script>
+    <script src="/js/validaciones_usuarios.js"></script>
+    <script src="/js/llamadas_usuarios.js"></script>
+    <script src="/js/registro_usuarios.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

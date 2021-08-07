@@ -5,9 +5,9 @@ const Usuarios = require('../../db/db.modelo.usuarios');
 
 let inspeccionarUsuario = async(usuario) => {
     try {
-        let existeUsuario = await Usuarios.findOne({where: {Correo: `${usuario.Correo}`}})
+        let existeUsuario = await Usuarios.findOne({where: {correo: `${usuario.correo}`}})
         if (existeUsuario != null){
-            let validacion = await Usuarios.findOne({where: {Contrasena: `${usuario.Contrasena}`}})
+            let validacion = await Usuarios.findOne({where: {contrasena: `${usuario.contrasena}`}})
             if (validacion != null){
                 return true;
             } else {
@@ -34,17 +34,17 @@ let consultaUsuarios = async() => {
 
 let crearUsuario = async (usuario) => {
     try {
-        let existeUsuario = await Usuarios.findOne({where: {Correo: `${usuario.Correo}`}})
+        let existeUsuario = await Usuarios.findOne({where: {correo: `${usuario.correo}`}})
         if (existeUsuario == null) {
             let nuevoUsuario = await Usuarios.create({
-                Nombres: usuario.Nombres,
-                Apellidos: usuario.Apellidos,
-                Correo: usuario.Correo,
-                Telefono: usuario.Telefono,
-                Fecha_Nacimiento: usuario.Fecha_Nacimiento,
-                Activo: usuario.Activo,
-                Contrasena: usuario.Contrasena,
-                Fk_Tipo_Usuarios: usuario.Fk_Tipo_Usuarios
+                nombres: usuario.nombres,
+                apellidos: usuario.apellidos,
+                correo: usuario.correo,
+                telefono: usuario.telefono,
+                fecha_nacimiento: usuario.fecha_nacimiento,
+                activo: usuario.activo,
+                contrasena: usuario.contrasena,
+                fk_tipo_usuarios: usuario.fk_tipo_usuarios
             });
             return nuevoUsuario;
         } else {
@@ -58,7 +58,7 @@ let crearUsuario = async (usuario) => {
 
 let eliminarUsuario = async (idUsuario) => {
     try {
-        let borrarUsuario = await Usuarios.destroy({where: {Id_usuario: `${idUsuario}`}})
+        let borrarUsuario = await Usuarios.destroy({where: {id_usuario: `${idUsuario}`}})
     } catch (error) {
         console.log(error);
         throw new Error('Ocurrio un error desde el modelo')
